@@ -1,3 +1,3 @@
 # thermometer
 my first c++ and github
-raspberry pi reading dht22 sensor using some source I found online
+raspberry pi reading dht22 sensor based on some source I found online

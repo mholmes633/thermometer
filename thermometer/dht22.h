@@ -11,7 +11,7 @@ public:
 
 	~dht22();
 
-	int readDHT22();
+	int readDHT22(bool);
 	float getTemperature();
 	float getHumidity();
 

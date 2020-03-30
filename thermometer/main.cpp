@@ -38,7 +38,7 @@ int main()
     while (cnt < 10) {
         res = pLLV3->lidar_read(fd);
         st = pLLV3->lidar_status(fd);
-        //ver = lidar_version(fd);
+        
 
         printf("%3.0d cm \n", res);
         pLLV3->lidar_status_print(st);

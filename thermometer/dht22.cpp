@@ -98,7 +98,7 @@ dht22::~dht22()
 	std::cout << "dht22 destructor called" << std::endl;
 }
 
-int dht22::readDHT22()
+int dht22::readDHT22(bool Celsius)
 {
     uint8_t laststate = HIGH;
     uint8_t counter = 0;
@@ -163,7 +163,11 @@ int dht22::readDHT22()
         t /= (float)10.0;
         if ((dht22_dat[2] & 0x80) != 0)  t *= -1;
 
-        this->temperature = t;
+        if (Celsius)
+            this->temperature = t;
+        else
+            this->temperature = (float)(t * 1.8 + 32);
+
         this->humidity = h;
         return 0;
     }

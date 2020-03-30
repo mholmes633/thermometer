@@ -3,6 +3,8 @@
 #include <wiringPi.h>
 #include "lidarLiteV3.h"
 
+#define CELSIUS    1
+#define FAHRENHEIT 0
 
 int main()
 {
@@ -45,7 +47,7 @@ int main()
 
         delay(del);
         if (res < 100) {
-            err = pDHT22->readDHT22();
+            err = pDHT22->readDHT22(FAHRENHEIT);
 
             if (err == 0) {
                 std::cout << "temperature = " << pDHT22->getTemperature() << std::endl;

@@ -103,10 +103,21 @@ int dht22::readDHT22()
     uint8_t laststate = HIGH;
     uint8_t counter = 0;
     uint8_t j = 0, i;
+    static bool LED_out = 0;
 
     dht22_dat[0] = dht22_dat[1] = dht22_dat[2] = dht22_dat[3] = dht22_dat[4] = 0;
 
     pinMode(LED, OUTPUT); // set LED GPIO to output
+    if (LED_out == 0) {
+        LED_out = 1;
+        digitalWrite(LED, LOW);
+    }
+    else {
+        LED_out = 0;
+        digitalWrite(LED, HIGH);
+    }
+    
+    LED_out = LED_out;
 
     // pull pin down for 18 milliseconds
     pinMode(DHTPIN, OUTPUT);
